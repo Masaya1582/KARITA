@@ -124,10 +124,17 @@
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="egB-xl-wRP">
                         <barButtonItem key="backBarButtonItem" title="Back" id="QWI-40-7d1"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="UgU-0n-OMA"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="UgU-0n-OMA">
+                            <connections>
+                                <action selector="saveAction:" destination="z8h-Ka-Xxm" id="gZc-pn-AcR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="detailTextView" destination="fWx-6Q-71Y" id="fKc-X5-78q"/>
+                        <outlet property="karimonoTextField" destination="jgX-0G-oPD" id="J1A-UJ-aGg"/>
+                        <outlet property="nameTextField" destination="R9J-oC-iVC" id="heA-CH-HXG"/>
+                        <outlet property="remindDatePicker" destination="Xkc-6E-LOO" id="K7Z-5X-psY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F4N-cE-QmQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

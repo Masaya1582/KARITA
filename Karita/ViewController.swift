@@ -13,12 +13,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var tableView: UITableView!
     
     
-    var testArray = ["I have a big dream that one day -","ごりら","らっぱ","ぱんつ","つみき"]
+    var testArray:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
         
     }
     
@@ -47,6 +54,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
             }
         }
+    
+    
     
 }
 

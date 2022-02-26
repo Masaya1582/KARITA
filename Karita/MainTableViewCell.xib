@@ -21,6 +21,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="checkmark.circle" catalog="system"/>
+                        <connections>
+                            <action selector="checkTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="fGH-Iy-5Q7"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ia-e6-TdP">
                         <rect key="frame" x="49" y="11" width="274" height="21"/>
@@ -34,6 +37,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="checkImage" destination="hBW-R8-TUZ" id="Wup-xB-WBv"/>
+                <outlet property="checkMark" destination="hBW-R8-TUZ" id="j0F-by-mz9"/>
                 <outlet property="titleLabel" destination="1Ia-e6-TdP" id="ISO-4B-JlN"/>
             </connections>
             <point key="canvasLocation" x="131.15942028985509" y="125.89285714285714"/>

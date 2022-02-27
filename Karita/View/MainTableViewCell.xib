@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ia-e6-TdP">
-                        <rect key="frame" x="49" y="11" width="123" height="21"/>
+                        <rect key="frame" x="49" y="11" width="125" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -32,8 +32,8 @@
                             <action selector="checkTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="fGH-Iy-5Q7"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2c-O0-umn">
-                        <rect key="frame" x="200" y="11" width="123" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1O-91-I4z">
+                        <rect key="frame" x="198" y="11" width="125" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -45,7 +45,7 @@
             <connections>
                 <outlet property="checkImage" destination="hBW-R8-TUZ" id="Wup-xB-WBv"/>
                 <outlet property="checkMark" destination="hBW-R8-TUZ" id="j0F-by-mz9"/>
-                <outlet property="dateLabel" destination="O2c-O0-umn" id="JOZ-6l-rXB"/>
+                <outlet property="dateLabel" destination="g1O-91-I4z" id="ERd-w6-OOS"/>
                 <outlet property="titleLabel" destination="1Ia-e6-TdP" id="ISO-4B-JlN"/>
             </connections>
             <point key="canvasLocation" x="131.15942028985509" y="125.22321428571428"/>

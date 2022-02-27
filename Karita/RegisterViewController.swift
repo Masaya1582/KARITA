@@ -16,6 +16,9 @@ class RegisterViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var remindDatePicker: UIDatePicker!
     
+    let realm = try! Realm()
+    var task: Task!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,8 +26,25 @@ class RegisterViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         nameTextField.delegate = self
         detailTextView.delegate = self
         
+        karimonoTextField.text = task.karimonoTitle
+        nameTextField.text = task.name
+        detailTextView.text = task.detail
+        remindDatePicker.date = task.date
+        
         detailTextView.backgroundColor = .white
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+            try! realm.write {
+                self.task.karimonoTitle = self.karimonoTextField.text!
+                self.task.name = self.nameTextField.text!
+                self.task.detail = self.detailTextView.text
+                self.task.date = self.remindDatePicker.date
+                self.realm.add(self.task, update: .modified)
+            }
+
+            super.viewWillDisappear(animated)
+        }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         
@@ -55,14 +75,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate,UITextViewDel
             print("値が未入力")
             
         }else {
-            
-            let nav = self.navigationController
-            // 一つ前のViewControllerを取得する
-            let mainVC = nav?.viewControllers[(nav?.viewControllers.count)!-2] as! ViewController
-            // 値を渡す
-            mainVC.testArray.append(karimonoTextField.text!)
-            
-
+        
             self.navigationController?.popToRootViewController(animated: true)
             print("戻ります")
            

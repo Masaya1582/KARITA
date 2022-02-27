@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import UserNotifications
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -82,23 +83,29 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "edit");
-//        self.navigationController?.pushViewController(storyboard!, animated: true)
         performSegue(withIdentifier: "edit",sender: nil)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == UITableViewCell.EditingStyle.delete {
-//                taskArray.remove(at: indexPath.row)
-//                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+                
+                let task = self.taskArray[indexPath.row]
+                let center = UNUserNotificationCenter.current()
+                            center.removePendingNotificationRequests(withIdentifiers: [String(task.id)])
+
                 try! realm.write {
                                 self.realm.delete(self.taskArray[indexPath.row])
                                 tableView.deleteRows(at: [indexPath], with: .fade)
                             }
+                
+                center.getPendingNotificationRequests { (requests: [UNNotificationRequest]) in
+                                for request in requests {
+                                    print("/---------------")
+                                    print(request)
+                                    print("---------------/")
+                                }
+                }
             }
         }
-    
-    
-    
 }
 

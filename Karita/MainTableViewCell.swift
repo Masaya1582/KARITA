@@ -28,7 +28,7 @@ class MainTableViewCell: UITableViewCell {
     
     @IBAction func checkTapped(_ sender: Any) {
         
-        checkMark.imageView?.image = UIImage(named: "checkmark.circle.fill")
+
         print("Button Tapped")
         
     }

@@ -1,20 +1,30 @@
 PODS:
   - PKHUD (5.3.0)
+  - Realm (10.22.0):
+    - Realm/Headers (= 10.22.0)
+  - Realm/Headers (10.22.0)
+  - RealmSwift (10.22.0):
+    - Realm (= 10.22.0)
   - SPIndicator (1.6.4)
 
 DEPENDENCIES:
   - PKHUD (~> 5.0)
+  - RealmSwift
   - SPIndicator
 
 SPEC REPOS:
   trunk:
     - PKHUD
+    - Realm
+    - RealmSwift
     - SPIndicator
 
 SPEC CHECKSUMS:
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
+  Realm: d9e4e5877095a6722145811f56fe89a531c9659d
+  RealmSwift: e4191b4b957fcfcbed23751ec65eec98f8173ab5
   SPIndicator: 93e0a4fb23de51294ac48e874c0f081a5e293e4f
 
-PODFILE CHECKSUM: b1a04f3ac9f2a9382d4b69c6268577199ed064b4
+PODFILE CHECKSUM: 7e4ac0e550c3b90613a22329b036849704c27fd7
 
 COCOAPODS: 1.11.2

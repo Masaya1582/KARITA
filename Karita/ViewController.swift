@@ -15,6 +15,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     var testArray:[String] = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,10 +49,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "edit");
+                self.navigationController?.pushViewController(storyboard!, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == UITableViewCell.EditingStyle.delete {
                 testArray.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+               
             }
         }
     

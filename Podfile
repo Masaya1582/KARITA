@@ -8,5 +8,6 @@ target 'Karita' do
   # Pods for Karita
     pod 'PKHUD', '~> 5.0'
     pod 'SPIndicator'
+    pod 'RealmSwift'
 
 end

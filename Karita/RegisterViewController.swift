@@ -7,10 +7,9 @@
 
 import UIKit
 import SPIndicator
+import RealmSwift
 
-
-
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController,UITextFieldDelegate,UITextViewDelegate {
     
     @IBOutlet weak var karimonoTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
@@ -19,9 +18,36 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        karimonoTextField.delegate = self
+        nameTextField.delegate = self
+        detailTextView.delegate = self
+        
 
         detailTextView.backgroundColor = .white
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        
+        view.endEditing(true)
+        
+        
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            
+//        karimonoTextField.resignFirstResponder()
+//        nameTextField.resignFirstResponder()
+//        detailTextView.resignFirstResponder()
+        
+        textField.resignFirstResponder()
+        if (self.detailTextView.isFirstResponder) {
+                self.detailTextView.resignFirstResponder()
+            }
+        return true
+        
+        }
 
     @IBAction func saveAction(_ sender: Any) {
         
@@ -38,6 +64,7 @@ class RegisterViewController: UIViewController {
             let mainVC = nav?.viewControllers[(nav?.viewControllers.count)!-2] as! ViewController
             // 値を渡す
             mainVC.testArray.append(karimonoTextField.text!)
+            
 
             self.navigationController?.popToRootViewController(animated: true)
             print("戻ります")

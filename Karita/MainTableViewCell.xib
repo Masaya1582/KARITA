@@ -16,6 +16,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ia-e6-TdP">
+                        <rect key="frame" x="49" y="11" width="274" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBW-R8-TUZ">
                         <rect key="frame" x="11" y="6" width="30" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -25,13 +32,6 @@
                             <action selector="checkTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="fGH-Iy-5Q7"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ia-e6-TdP">
-                        <rect key="frame" x="49" y="11" width="274" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -40,7 +40,7 @@
                 <outlet property="checkMark" destination="hBW-R8-TUZ" id="j0F-by-mz9"/>
                 <outlet property="titleLabel" destination="1Ia-e6-TdP" id="ISO-4B-JlN"/>
             </connections>
-            <point key="canvasLocation" x="131.15942028985509" y="125.89285714285714"/>
+            <point key="canvasLocation" x="131.15942028985509" y="125.55803571428571"/>
         </tableViewCell>
     </objects>
     <resources>

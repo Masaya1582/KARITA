@@ -36,6 +36,18 @@ class RegisterViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        if karimonoTextField.text == "" {
+            
+            try! realm.write {
+                self.task.karimonoTitle = "無題"
+                self.task.name = self.nameTextField.text!
+                self.task.detail = self.detailTextView.text
+                self.task.date = self.remindDatePicker.date
+                self.realm.add(self.task, update: .modified)
+            }
+            
+        }else {
+            
             try! realm.write {
                 self.task.karimonoTitle = self.karimonoTextField.text!
                 self.task.name = self.nameTextField.text!
@@ -43,7 +55,9 @@ class RegisterViewController: UIViewController,UITextFieldDelegate,UITextViewDel
                 self.task.date = self.remindDatePicker.date
                 self.realm.add(self.task, update: .modified)
             }
-
+            
+        }
+        
             setNotification(task: task)
             super.viewWillDisappear(animated)
         }

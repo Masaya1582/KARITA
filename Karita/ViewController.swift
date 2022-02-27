@@ -26,6 +26,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         tableView.delegate = self
         tableView.dataSource = self
         
+        navigationItem.leftBarButtonItem = editButtonItem
+        
         tableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         
     }
@@ -107,5 +109,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 }
             }
         }
+    
+   
+    
+    
+    
+    
 }
 

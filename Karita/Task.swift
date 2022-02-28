@@ -27,5 +27,4 @@ class Task: Object {
     override static func primaryKey() -> String? {
         return "id"
     }
-    
 }

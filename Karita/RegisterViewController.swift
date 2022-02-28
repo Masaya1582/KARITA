@@ -10,19 +10,22 @@ import SPIndicator
 import RealmSwift
 import UserNotifications
 
-class RegisterViewController: UIViewController,UITextFieldDelegate,UITextViewDelegate {
+class RegisterViewController: UIViewController {
     
     @IBOutlet weak var karimonoTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var remindDatePicker: UIDatePicker!
     
-    let realm = try! Realm()
+    private let realm = try! Realm()
     var task: Task!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupView()
+    }
+    
+    private func setupView() {
         karimonoTextField.delegate = self
         nameTextField.delegate = self
         detailTextView.delegate = self
@@ -36,57 +39,18 @@ class RegisterViewController: UIViewController,UITextFieldDelegate,UITextViewDel
             .font: UIFont.boldSystemFont(ofSize: 15.0),
             .foregroundColor : UIColor.lightGray
         ]
-        
         karimonoTextField.attributedPlaceholder = NSAttributedString(string: "借り物", attributes: attributes)
         nameTextField.attributedPlaceholder = NSAttributedString(string: "名前", attributes: attributes)
-        
         
         detailTextView.backgroundColor = .white
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        //        if karimonoTextField.text == "" {
-        //
-        //            try! realm.write {
-        //                self.task.karimonoTitle = "無題"
-        //                self.task.name = self.nameTextField.text!
-        //                self.task.detail = self.detailTextView.text
-        //                self.task.date = self.remindDatePicker.date
-        //                self.realm.add(self.task, update: .modified)
-        //            }
-        //
-        //        }else {
-        //
-        //            try! realm.write {
-        //                self.task.karimonoTitle = self.karimonoTextField.text!
-        //                self.task.name = self.nameTextField.text!
-        //                self.task.detail = self.detailTextView.text
-        //                self.task.date = self.remindDatePicker.date
-        //                self.realm.add(self.task, update: .modified)
-        //            }
-        //
-        //        }
-        //
-        //        setNotification(task: task)
-        
-    }
-    
-    func setNotification(task: Task) {
+    private func setNotification(task: Task) {
         let content = UNMutableNotificationContent()
         // タイトルと内容を設定(中身がない場合メッセージ無しで音だけの通知になるので「(xxなし)」を表示する)
-        if task.karimonoTitle == "" {
-            content.title = "(題名なし)"
-        } else {
-            content.title = task.karimonoTitle
-        }
-        if task.name == "" {
-            content.body = "(名前なし)"
-        } else {
-            content.body = "\(task.name)に返却"
-        }
-        content.sound = UNNotificationSound.default
+        content.title = task.karimonoTitle == "" ? "(題名なし)" : task.karimonoTitle
+        content.body = task.name == "" ? "(題名なし)" : "\(task.name)に返却"
+        content.sound = .default
         
         // ローカル通知が発動するtrigger（日付マッチ）を作成
         let calendar = Calendar.current
@@ -98,7 +62,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         
         // ローカル通知を登録
         let center = UNUserNotificationCenter.current()
-        center.add(request) { (error) in
+        center.add(request) { error in
             print(error ?? "ローカル通知登録 OK")  // error が nil ならローカル通知の登録に成功したと表示します。errorが存在すればerrorを表示します。
         }
         
@@ -112,57 +76,34 @@ class RegisterViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         }
     }
     
+    @IBAction func saveAction(_ sender: Any) {
+        if karimonoTextField.text == "" {
+            let indicatorView = SPIndicatorView(title: "エラー", message: "借り物項目の入力漏れ", preset: .error)
+            indicatorView.present(duration: 3)
+            return
+        }
+        try! realm.write {
+            self.task.karimonoTitle = self.karimonoTextField.text!
+            self.task.name = self.nameTextField.text!
+            self.task.detail = self.detailTextView.text
+            self.task.date = self.remindDatePicker.date
+            self.realm.add(self.task, update: .modified)
+        }
+        setNotification(task: task)
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+extension RegisterViewController: UITextFieldDelegate, UITextViewDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        
         view.endEditing(true)
-        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         textField.resignFirstResponder()
-        if (self.detailTextView.isFirstResponder) {
+        if self.detailTextView.isFirstResponder {
             self.detailTextView.resignFirstResponder()
         }
         return true
-        
     }
-    
-    @IBAction func saveAction(_ sender: Any) {
-        
-        if karimonoTextField.text == "" {
-            
-            let indicatorView = SPIndicatorView(title: "エラー", message: "借り物項目の入力漏れ", preset: .error)
-            indicatorView.present(duration: 3)
-            print("値が未入力")
-            
-        }else {
-            
-            try! realm.write {
-                self.task.karimonoTitle = self.karimonoTextField.text!
-                self.task.name = self.nameTextField.text!
-                self.task.detail = self.detailTextView.text
-                self.task.date = self.remindDatePicker.date
-                self.realm.add(self.task, update: .modified)
-            }
-            
-            setNotification(task: task)
-            
-            self.navigationController?.popToRootViewController(animated: true)
-            print("戻ります")
-            
-        }
-        
-    }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

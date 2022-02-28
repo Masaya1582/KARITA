@@ -66,7 +66,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate,UITextViewDel
             let content = UNMutableNotificationContent()
             // タイトルと内容を設定(中身がない場合メッセージ無しで音だけの通知になるので「(xxなし)」を表示する)
             if task.karimonoTitle == "" {
-                content.title = "(タイトルなし)"
+                content.title = "(題名なし)"
             } else {
                 content.title = task.karimonoTitle
             }
@@ -138,7 +138,8 @@ class RegisterViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         
     }
     
-   
+    
+    
     
     
 

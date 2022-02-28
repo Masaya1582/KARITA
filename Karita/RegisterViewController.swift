@@ -155,16 +155,6 @@ class RegisterViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     /*
      // MARK: - Navigation
      

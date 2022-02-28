@@ -23,14 +23,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        let now = Date()
-        let nowDateFormatter = DateFormatter()
-        nowDateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "ydMMMHms", options: 0, locale: Locale(identifier: "ja_JP"))
-        print(nowDateFormatter.string(from: now))
-        
+    
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "MarkerFelt-Wide", size: 30)!,.foregroundColor: UIColor.white]
-        
         
         tableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         
@@ -40,6 +34,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.viewWillAppear(animated)
         
         tableView.reloadData()
+       
         
     }
     
@@ -81,8 +76,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
 
-        let dateString:String = formatter.string(from: task.date)
-        cell.dateLabel.text = dateString
+        let taskDateString:String = formatter.string(from: task.date)
+        cell.dateLabel.text = taskDateString
+        
+        let today = Date()
+        if task.date <= today {
+            
+            cell.dateLabel.textColor = .red
+            
+        }
         
         return cell
         

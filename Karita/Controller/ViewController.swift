@@ -68,6 +68,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let today = Date()
         if task.date <= today {
             cell.dateLabel.textColor = .red
+            cell.titleLabel.alpha = 0.5
         }
         
         return cell

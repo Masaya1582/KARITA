@@ -50,6 +50,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		406B293027CE4E9300221958 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4012CF3027CB1301005314E9 /* Task.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		406B293127CE4EA300221958 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				408EDE6B27CA54FF0063FDEB /* Main.storyboard */,
+				408EDE7027CA55030063FDEB /* LaunchScreen.storyboard */,
+				408EDE8027CA5E080063FDEB /* MainTableViewCell.xib */,
+				408EDE7F27CA5E080063FDEB /* MainTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		406B293227CE4EC700221958 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				408EDE6927CA54FF0063FDEB /* ViewController.swift */,
+				408EDE7927CA56C60063FDEB /* RegisterViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		408EDE5927CA54FF0063FDEB = {
 			isa = PBXGroup;
 			children = (
@@ -73,14 +101,10 @@
 			children = (
 				408EDE6527CA54FF0063FDEB /* AppDelegate.swift */,
 				408EDE6727CA54FF0063FDEB /* SceneDelegate.swift */,
-				4012CF3027CB1301005314E9 /* Task.swift */,
-				408EDE6927CA54FF0063FDEB /* ViewController.swift */,
-				408EDE7927CA56C60063FDEB /* RegisterViewController.swift */,
-				408EDE6B27CA54FF0063FDEB /* Main.storyboard */,
-				408EDE7F27CA5E080063FDEB /* MainTableViewCell.swift */,
-				408EDE8027CA5E080063FDEB /* MainTableViewCell.xib */,
+				406B293027CE4E9300221958 /* Model */,
+				406B293127CE4EA300221958 /* View */,
+				406B293227CE4EC700221958 /* Controller */,
 				408EDE6E27CA55030063FDEB /* Assets.xcassets */,
-				408EDE7027CA55030063FDEB /* LaunchScreen.storyboard */,
 				408EDE7327CA55030063FDEB /* Info.plist */,
 			);
 			path = Karita;

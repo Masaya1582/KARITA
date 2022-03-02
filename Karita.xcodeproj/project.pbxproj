@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4012CF3127CB1301005314E9 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4012CF3027CB1301005314E9 /* Task.swift */; };
+		406B293427CEEF6300221958 /* UIColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406B293327CEEF6300221958 /* UIColorHex.swift */; };
 		408EDE6627CA54FF0063FDEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408EDE6527CA54FF0063FDEB /* AppDelegate.swift */; };
 		408EDE6827CA54FF0063FDEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408EDE6727CA54FF0063FDEB /* SceneDelegate.swift */; };
 		408EDE6A27CA54FF0063FDEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408EDE6927CA54FF0063FDEB /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		02A2DA3EC13478A790AE5390 /* Pods-Karita.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Karita.debug.xcconfig"; path = "Target Support Files/Pods-Karita/Pods-Karita.debug.xcconfig"; sourceTree = "<group>"; };
 		4012CF3027CB1301005314E9 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		406B293327CEEF6300221958 /* UIColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHex.swift; sourceTree = "<group>"; };
 		408EDE6227CA54FF0063FDEB /* Karita.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Karita.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		408EDE6527CA54FF0063FDEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		408EDE6727CA54FF0063FDEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				4012CF3027CB1301005314E9 /* Task.swift */,
+				406B293327CEEF6300221958 /* UIColorHex.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				406B293427CEEF6300221958 /* UIColorHex.swift in Sources */,
 				408EDE6A27CA54FF0063FDEB /* ViewController.swift in Sources */,
 				408EDE6627CA54FF0063FDEB /* AppDelegate.swift in Sources */,
 				408EDE6827CA54FF0063FDEB /* SceneDelegate.swift in Sources */,

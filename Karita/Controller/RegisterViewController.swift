@@ -52,7 +52,7 @@ class RegisterViewController: UIViewController {
         let content = UNMutableNotificationContent()
         // タイトルと内容を設定(中身がない場合メッセージ無しで音だけの通知になるので「(xxなし)」を表示する)
         content.title = task.karimonoTitle == "" ? "(題名なし)" : task.karimonoTitle
-        content.body = task.name == "" ? "(名前なし)" : "\(task.name)に返却"
+        content.body = task.name == "" ? "返却時間です" : "\(task.name)に返却"
         content.sound = .default
         
         // ローカル通知が発動するtrigger（日付マッチ）を作成

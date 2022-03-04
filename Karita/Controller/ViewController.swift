@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     
     private let realm = try! Realm()
     private var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
-    var task: Task!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,13 +69,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.contentView.backgroundColor = UIColor.white
         let task = taskArray[indexPath.row]
         cell.titleLabel.text = task.karimonoTitle
-        
-        if self.task.isChecked == true {
-            try! realm.write {
-                self.realm.delete(self.taskArray[indexPath.row])
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
-        }
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"

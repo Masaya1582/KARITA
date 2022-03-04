@@ -1,30 +1,34 @@
 PODS:
+  - M13Checkbox (3.4.0)
   - PKHUD (5.3.0)
-  - Realm (10.22.0):
-    - Realm/Headers (= 10.22.0)
-  - Realm/Headers (10.22.0)
-  - RealmSwift (10.22.0):
-    - Realm (= 10.22.0)
+  - Realm (10.23.0):
+    - Realm/Headers (= 10.23.0)
+  - Realm/Headers (10.23.0)
+  - RealmSwift (10.23.0):
+    - Realm (= 10.23.0)
   - SPIndicator (1.6.4)
 
 DEPENDENCIES:
+  - M13Checkbox
   - PKHUD (~> 5.0)
   - RealmSwift
   - SPIndicator
 
 SPEC REPOS:
   trunk:
+    - M13Checkbox
     - PKHUD
     - Realm
     - RealmSwift
     - SPIndicator
 
 SPEC CHECKSUMS:
+  M13Checkbox: 6f59404540ac98ba83a3d1afac335895a40c6a5d
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
-  Realm: d9e4e5877095a6722145811f56fe89a531c9659d
-  RealmSwift: e4191b4b957fcfcbed23751ec65eec98f8173ab5
+  Realm: bdac9baede54becb2883f319fc50e9e12b35235c
+  RealmSwift: e083456e083dcfd6ef9087cdde6b031ec6224783
   SPIndicator: 93e0a4fb23de51294ac48e874c0f081a5e293e4f
 
-PODFILE CHECKSUM: 7e4ac0e550c3b90613a22329b036849704c27fd7
+PODFILE CHECKSUM: f7c939ec7a91e822287a54e61d2a0c7956e84bc9
 
 COCOAPODS: 1.11.2

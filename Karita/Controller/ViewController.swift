@@ -8,6 +8,7 @@
 import UIKit
 import RealmSwift
 import UserNotifications
+import M13Checkbox
 
 class ViewController: UIViewController {
     
@@ -79,6 +80,38 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         if task.date <= today {
             cell.dateLabel.textColor = .red
             cell.titleLabel.alpha = 0.5
+        }
+        
+        cell.checkBox.stateChangeAnimation = .expand(.fill)
+        
+        switch cell.checkBox!.stateChangeAnimation {
+        case .stroke:
+            print("stroke")
+        case .fill:
+            print("fill")
+        case .bounce:
+            print("bounce")
+        case .expand:
+            print("expand")
+        case .flat:
+            print("flat")
+        case .spiral:
+            print("spiral now available")
+        case .fade:
+            print("fade")
+        case .dot:
+            print("dot")
+        }
+        
+        if let state = cell.checkBox?.checkState {
+            switch state {
+            case .unchecked:
+                print("unchecked")
+            case .checked:
+                print("checked")
+            case .mixed:
+                print("mixed")
+            }
         }
         
         return cell

@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -33,31 +34,30 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCi-eO-SEZ">
-                        <rect key="frame" x="10" y="15" width="30" height="30"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgl-EX-qZC" customClass="M13Checkbox" customModule="M13Checkbox">
+                        <rect key="frame" x="10" y="10" width="30" height="30"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="HTo-De-VNM"/>
-                            <constraint firstAttribute="width" secondItem="wCi-eO-SEZ" secondAttribute="height" multiplier="1:1" id="xde-00-rGE"/>
+                            <constraint firstAttribute="height" constant="30" id="26U-U2-kbe"/>
+                            <constraint firstAttribute="width" secondItem="Mgl-EX-qZC" secondAttribute="height" multiplier="1:1" id="NbR-YH-Mqy"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="checkmark.circle" catalog="system" title=""/>
                         <connections>
-                            <action selector="checkAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="aHD-cV-PCO"/>
+                            <action selector="checkAction:" destination="KGk-i7-Jjw" eventType="valueChanged" id="J6p-4D-VP7"/>
                         </connections>
-                    </button>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="wCi-eO-SEZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="9cm-PB-9st"/>
+                    <constraint firstItem="vVh-0A-BB6" firstAttribute="leading" secondItem="Mgl-EX-qZC" secondAttribute="trailing" constant="10" id="5Es-83-KaO"/>
+                    <constraint firstItem="Mgl-EX-qZC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="9mi-z2-kVP"/>
                     <constraint firstAttribute="trailing" secondItem="vVh-0A-BB6" secondAttribute="trailing" constant="10" id="Cfd-fs-mcQ"/>
-                    <constraint firstItem="vVh-0A-BB6" firstAttribute="leading" secondItem="wCi-eO-SEZ" secondAttribute="trailing" constant="10" id="N1Z-if-Gle"/>
                     <constraint firstItem="vVh-0A-BB6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="g2X-Jy-XTp"/>
-                    <constraint firstItem="wCi-eO-SEZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="uB4-5T-eXQ"/>
+                    <constraint firstItem="Mgl-EX-qZC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="qoM-a8-euz"/>
                     <constraint firstAttribute="bottom" secondItem="vVh-0A-BB6" secondAttribute="bottom" constant="10" id="yhe-3Q-mvf"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="checkMark" destination="wCi-eO-SEZ" id="9cq-ug-J9T"/>
+                <outlet property="checkBox" destination="Mgl-EX-qZC" id="ilL-H0-TRL"/>
                 <outlet property="dateLabel" destination="O2c-O0-umn" id="JOZ-6l-rXB"/>
                 <outlet property="titleLabel" destination="1Ia-e6-TdP" id="ISO-4B-JlN"/>
             </connections>
@@ -65,6 +65,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

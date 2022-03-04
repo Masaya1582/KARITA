@@ -9,5 +9,6 @@ target 'Karita' do
     pod 'PKHUD', '~> 5.0'
     pod 'SPIndicator'
     pod 'RealmSwift'
+    pod 'M13Checkbox'
 
 end

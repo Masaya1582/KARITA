@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  InitialViewController.swift
 //  Karita
 //
-//  Created by Cookie-san on 2022/02/26.
+//  Created by Cookie-san on 2022/03/04.
 //
 
 import UIKit
@@ -10,12 +10,13 @@ import RealmSwift
 import UserNotifications
 import M13Checkbox
 
-class ViewController: UIViewController {
-    
+
+class InitialViewController: UIViewController {
+   
     @IBOutlet weak var tableView: UITableView!
     
-    private let realm = try! Realm()
-    private var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
+    let realm = try! Realm()
+    var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +57,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension InitialViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -81,9 +82,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             cell.dateLabel.textColor = .red
             cell.titleLabel.alpha = 0.5
         }
-        
-        cell.checkBox.stateChangeAnimation = .expand(.fill)
-        
+    
         switch cell.checkBox!.stateChangeAnimation {
         case .stroke:
             print("stroke")
@@ -146,4 +145,5 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+
 

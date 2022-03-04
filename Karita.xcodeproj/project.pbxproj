@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4010C79527D24F7900A0F3B2 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4010C79427D24F7900A0F3B2 /* InitialViewController.swift */; };
 		4012CF3127CB1301005314E9 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4012CF3027CB1301005314E9 /* Task.swift */; };
 		406B293427CEEF6300221958 /* UIColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406B293327CEEF6300221958 /* UIColorHex.swift */; };
 		408EDE6627CA54FF0063FDEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408EDE6527CA54FF0063FDEB /* AppDelegate.swift */; };
 		408EDE6827CA54FF0063FDEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408EDE6727CA54FF0063FDEB /* SceneDelegate.swift */; };
-		408EDE6A27CA54FF0063FDEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408EDE6927CA54FF0063FDEB /* ViewController.swift */; };
 		408EDE6D27CA54FF0063FDEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 408EDE6B27CA54FF0063FDEB /* Main.storyboard */; };
 		408EDE6F27CA55030063FDEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 408EDE6E27CA55030063FDEB /* Assets.xcassets */; };
 		408EDE7227CA55030063FDEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 408EDE7027CA55030063FDEB /* LaunchScreen.storyboard */; };
@@ -23,12 +23,12 @@
 
 /* Begin PBXFileReference section */
 		02A2DA3EC13478A790AE5390 /* Pods-Karita.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Karita.debug.xcconfig"; path = "Target Support Files/Pods-Karita/Pods-Karita.debug.xcconfig"; sourceTree = "<group>"; };
+		4010C79427D24F7900A0F3B2 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		4012CF3027CB1301005314E9 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		406B293327CEEF6300221958 /* UIColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHex.swift; sourceTree = "<group>"; };
 		408EDE6227CA54FF0063FDEB /* Karita.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Karita.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		408EDE6527CA54FF0063FDEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		408EDE6727CA54FF0063FDEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		408EDE6927CA54FF0063FDEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		408EDE6C27CA54FF0063FDEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		408EDE6E27CA55030063FDEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		408EDE7127CA55030063FDEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 		406B293227CE4EC700221958 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				408EDE6927CA54FF0063FDEB /* ViewController.swift */,
+				4010C79427D24F7900A0F3B2 /* InitialViewController.swift */,
 				408EDE7927CA56C60063FDEB /* RegisterViewController.swift */,
 			);
 			path = Controller;
@@ -247,12 +247,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				406B293427CEEF6300221958 /* UIColorHex.swift in Sources */,
-				408EDE6A27CA54FF0063FDEB /* ViewController.swift in Sources */,
 				408EDE6627CA54FF0063FDEB /* AppDelegate.swift in Sources */,
 				408EDE6827CA54FF0063FDEB /* SceneDelegate.swift in Sources */,
 				408EDE7A27CA56C60063FDEB /* RegisterViewController.swift in Sources */,
 				4012CF3127CB1301005314E9 /* Task.swift in Sources */,
 				408EDE8127CA5E080063FDEB /* MainTableViewCell.swift in Sources */,
+				4010C79527D24F7900A0F3B2 /* InitialViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

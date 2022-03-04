@@ -90,6 +90,7 @@ class RegisterViewController: UIViewController {
             self.task.name = self.nameTextField.text!
             self.task.detail = self.detailTextView.text
             self.task.date = self.remindDatePicker.date
+            self.task.isChecked = false
             self.realm.add(self.task, update: .modified)
         }
         setNotification(task: task)

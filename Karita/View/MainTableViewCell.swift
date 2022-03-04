@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MainTableViewCell: UITableViewCell {
     
@@ -13,6 +14,10 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var checkMark: UIButton!
     
+    private let realm = try! Realm()
+    private var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
+    var task: Task!
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -21,10 +26,10 @@ class MainTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    
-    @IBAction func checkAction(_ sender: Any) {
+    @IBAction func checkAction(_ sender: UIButton) {
+        
+        self.task.isChecked = false
         print("Button Tapped")
-        let image = UIImage(named: "checkmark.circle.fill")
-        checkMark.imageView?.image = image
+       
     }
 }

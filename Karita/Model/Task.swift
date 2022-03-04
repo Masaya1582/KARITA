@@ -20,6 +20,9 @@ class Task: Object {
     // 詳細
     @objc dynamic var detail = ""
     
+    //確認
+    @objc dynamic var isChecked = Bool()
+    
     // 日時
     @objc dynamic var date = Date()
     

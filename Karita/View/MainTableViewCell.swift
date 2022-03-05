@@ -10,6 +10,13 @@ import M13Checkbox
 import RealmSwift
 import UserNotifications
 
+//protocol DeleteButtonDelegate {
+//    func deletePressed(index: Int)
+//}
+
+protocol DeleteButtonDelegate {
+    func deletePressed(in cell: UITableViewCell)
+}
 
 class MainTableViewCell: UITableViewCell {
     
@@ -17,8 +24,9 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    private let realm = try! Realm()
-    private var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
+    let realm = try! Realm()
+    var deleteButtonDelegate: DeleteButtonDelegate!
+    //    var indexPath: IndexPath!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,7 +59,8 @@ class MainTableViewCell: UITableViewCell {
     
     
     @IBAction func checkAction(_ sender: M13Checkbox) {
-        
+        //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //        let initVC = storyboard.instantiateViewController(withIdentifier: "initial") as! InitialViewController
         switch sender.checkState {
         case .checked:
             checkBox.setCheckState(.unchecked, animated: false)
@@ -67,28 +76,8 @@ class MainTableViewCell: UITableViewCell {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
-            // セルを削除する
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let initialView = storyboard.instantiateViewController(withIdentifier: "initial") as! InitialViewController
-            //UITableView内の座標に変換
-            let point = initialView.tableView.convert(sender.center, from: sender)
-            //座標からindexPathを取得
-            let indexPath = initialView.tableView.indexPathForRow(at: point)
-            
-            try! initialView.realm.write {
-                initialView.realm.delete(initialView.taskArray[indexPath!.row])
-                initialView.tableView.deleteRows(at: [indexPath!], with: .fade)
-            }
-            
-            let center = UNUserNotificationCenter.current()
-            center.getPendingNotificationRequests { (requests: [UNNotificationRequest]) in
-                for request in requests {
-                    print("/---------------")
-                    print(request)
-                    print("---------------/")
-                }
-            }
+            print("Delete Row")
+            self.deleteButtonDelegate?.deletePressed(in: self)
         }
     }
-    
 }

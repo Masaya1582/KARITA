@@ -12,7 +12,7 @@ import M13Checkbox
 
 
 class InitialViewController: UIViewController {
-   
+    
     @IBOutlet weak var tableView: UITableView!
     
     let realm = try! Realm()
@@ -82,7 +82,7 @@ extension InitialViewController: UITableViewDelegate, UITableViewDataSource {
             cell.dateLabel.textColor = .red
             cell.titleLabel.alpha = 0.5
         }
-    
+        
         switch cell.checkBox!.stateChangeAnimation {
         case .stroke:
             print("stroke")
@@ -124,6 +124,16 @@ extension InitialViewController: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "edit", sender: nil)
     }
     
+    func deletePressed(in cell: UITableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else {
+            return
+        }
+        try! realm.write {
+            self.realm.delete(self.taskArray[indexPath.row])
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let task = self.taskArray[indexPath.row]
@@ -145,5 +155,3 @@ extension InitialViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
-
-

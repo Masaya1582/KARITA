@@ -44,7 +44,6 @@ class RegisterViewController: UIViewController {
         ]
         karimonoTextField.attributedPlaceholder = NSAttributedString(string: "借り物", attributes: attributes)
         nameTextField.attributedPlaceholder = NSAttributedString(string: "名前", attributes: attributes)
-        
         detailTextView.backgroundColor = .white
     }
     
@@ -109,4 +108,5 @@ extension RegisterViewController: UITextFieldDelegate, UITextViewDelegate {
         }
         return true
     }
+    
 }

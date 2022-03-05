@@ -10,7 +10,6 @@ import RealmSwift
 import UserNotifications
 import M13Checkbox
 
-
 class InitialViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -27,6 +26,7 @@ class InitialViewController: UIViewController {
     private func setupView() {
         tableView.delegate = self
         tableView.dataSource = self
+        navigationItem.leftBarButtonItems = [editButtonItem]
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "MarkerFelt-Wide", size: 30)!,.foregroundColor: UIColor.white]
     }
     
@@ -55,9 +55,17 @@ class InitialViewController: UIViewController {
             registerVC.task = task
         }
     }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.setEditing(editing, animated: animated)
+        tableView.isEditing = editing
+    }
+    
 }
 
 extension InitialViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -83,55 +91,48 @@ extension InitialViewController: UITableViewDelegate, UITableViewDataSource {
             cell.titleLabel.alpha = 0.5
         }
         
-        switch cell.checkBox!.stateChangeAnimation {
-        case .stroke:
-            print("stroke")
-        case .fill:
-            print("fill")
-        case .bounce:
-            print("bounce")
-        case .expand:
-            print("expand")
-        case .flat:
-            print("flat")
-        case .spiral:
-            print("spiral now available")
-        case .fade:
-            print("fade")
-        case .dot:
-            print("dot")
-        }
-        
-        if let state = cell.checkBox?.checkState {
-            switch state {
-            case .unchecked:
-                print("unchecked")
-            case .checked:
-                print("checked")
-            case .mixed:
-                print("mixed")
-            }
-        }
+        //        switch cell.checkBox!.stateChangeAnimation {
+        //        case .stroke:
+        //            print("stroke")
+        //        case .fill:
+        //            print("fill")
+        //        case .bounce:
+        //            print("bounce")
+        //        case .expand:
+        //            print("expand")
+        //        case .flat:
+        //            print("flat")
+        //        case .spiral:
+        //            print("spiral now available")
+        //        case .fade:
+        //            print("fade")
+        //        case .dot:
+        //            print("dot")
+        //        }
+        //
+        //        if let state = cell.checkBox?.checkState {
+        //            switch state {
+        //            case .unchecked:
+        //                print("unchecked")
+        //            case .checked:
+        //                print("checked")
+        //            case .mixed:
+        //                print("mixed")
+        //            }
+        //        }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
+        if tableView.isEditing {
+            return .delete
+        }
+        return .none
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "edit", sender: nil)
-    }
-    
-    func deletePressed(in cell: UITableViewCell) {
-        guard let indexPath = tableView.indexPath(for: cell) else {
-            return
-        }
-        try! realm.write {
-            self.realm.delete(self.taskArray[indexPath.row])
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -154,4 +155,5 @@ extension InitialViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
+    
 }

@@ -7,16 +7,7 @@
 
 import UIKit
 import M13Checkbox
-import RealmSwift
 import UserNotifications
-
-//protocol DeleteButtonDelegate {
-//    func deletePressed(index: Int)
-//}
-
-protocol DeleteButtonDelegate {
-    func deletePressed(in cell: UITableViewCell)
-}
 
 class MainTableViewCell: UITableViewCell {
     
@@ -24,13 +15,10 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    let realm = try! Realm()
-    var deleteButtonDelegate: DeleteButtonDelegate!
-    //    var indexPath: IndexPath!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         initCheckBox()
+        self.backgroundColor = .white
     }
     
     private func initCheckBox() {
@@ -57,27 +45,24 @@ class MainTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    
     @IBAction func checkAction(_ sender: M13Checkbox) {
-        //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //        let initVC = storyboard.instantiateViewController(withIdentifier: "initial") as! InitialViewController
         switch sender.checkState {
         case .checked:
             checkBox.setCheckState(.unchecked, animated: false)
+            titleLabel.textColor = .red
+            //dateLabel.textColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.7)
             print(checkBox.checkState)
             
         case .unchecked:
             checkBox.setCheckState(.checked, animated: false)
+            titleLabel.textColor = .black
+            //dateLabel.textColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.7)
             print(checkBox.checkState)
             
         case .mixed:
             print(checkBox.checkState)
             break
         }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
-            print("Delete Row")
-            self.deleteButtonDelegate?.deletePressed(in: self)
-        }
     }
+    
 }

@@ -45,6 +45,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="KARITA" largeTitleDisplayMode="always" id="HwH-6Z-7MR">
                         <barButtonItem key="backBarButtonItem" title="Back" id="ZjY-p6-v2R"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="ja6-22-NTr"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FKt-4l-Vi3">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>

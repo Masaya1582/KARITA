@@ -10,6 +10,7 @@ import SPIndicator
 import RealmSwift
 import UserNotifications
 
+
 class RegisterViewController: UIViewController {
     
     @IBOutlet weak var karimonoTextField: UITextField!

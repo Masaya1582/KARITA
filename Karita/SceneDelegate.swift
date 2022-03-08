@@ -1,9 +1,4 @@
-//
-//  SceneDelegate.swift
-//  Karita
-//
-//  Created by Cookie-san on 2022/02/26.
-//
+
 
 import UIKit
 

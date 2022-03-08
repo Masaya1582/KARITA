@@ -1,9 +1,4 @@
-//
-//  Task.swift
-//  Karita
-//
-//  Created by Cookie-san on 2022/02/27.
-//
+
 
 import RealmSwift
 

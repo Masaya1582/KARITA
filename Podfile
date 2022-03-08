@@ -10,5 +10,6 @@ target 'Karita' do
     pod 'SPIndicator'
     pod 'RealmSwift'
     pod 'M13Checkbox'
+    pod 'Google-Mobile-Ads-SDK'
 
 end

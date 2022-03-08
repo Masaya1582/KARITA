@@ -1,20 +1,19 @@
-//
-//  AppDelegate.swift
-//  Karita
-//
-//  Created by Cookie-san on 2022/02/26.
-//
+
 
 import UIKit
 import UserNotifications
+import GoogleMobileAds
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
+        sleep(2)
+        
         let center = UNUserNotificationCenter.current()
                 center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
                     // Enable or disable features based on authorization

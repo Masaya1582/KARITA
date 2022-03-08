@@ -9,6 +9,8 @@ import UIKit
 import RealmSwift
 import UserNotifications
 import M13Checkbox
+import GoogleMobileAds
+
 
 class InitialViewController: UIViewController {
     
@@ -16,10 +18,12 @@ class InitialViewController: UIViewController {
     
     let realm = try! Realm()
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
+    private var bannerView: GADBannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupAd()
         initTableView()
     }
     
@@ -34,6 +38,10 @@ class InitialViewController: UIViewController {
         tableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         tableView.estimatedRowHeight = 70
         tableView.rowHeight = UITableView.automaticDimension
+    }
+    
+    private func setupAd() {
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,46 +98,16 @@ extension InitialViewController: UITableViewDelegate, UITableViewDataSource {
             cell.dateLabel.textColor = .red
             cell.titleLabel.alpha = 0.5
         }
-        
-        //        switch cell.checkBox!.stateChangeAnimation {
-        //        case .stroke:
-        //            print("stroke")
-        //        case .fill:
-        //            print("fill")
-        //        case .bounce:
-        //            print("bounce")
-        //        case .expand:
-        //            print("expand")
-        //        case .flat:
-        //            print("flat")
-        //        case .spiral:
-        //            print("spiral now available")
-        //        case .fade:
-        //            print("fade")
-        //        case .dot:
-        //            print("dot")
-        //        }
-        //
-        //        if let state = cell.checkBox?.checkState {
-        //            switch state {
-        //            case .unchecked:
-        //                print("unchecked")
-        //            case .checked:
-        //                print("checked")
-        //            case .mixed:
-        //                print("mixed")
-        //            }
-        //        }
-        
         return cell
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if tableView.isEditing {
-            return .delete
-        }
-        return .none
-    }
+    //左スワイプでの削除を出来ないようにするかどうか悩み中
+    //    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+    //        if tableView.isEditing {
+    //            return .delete
+    //        }
+    //        return .none
+    //    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "edit", sender: nil)
@@ -157,3 +135,5 @@ extension InitialViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+

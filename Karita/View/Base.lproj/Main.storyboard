@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vah-ff-Knh">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="573"/>
                                 <color key="backgroundColor" red="0.58431372549019611" green="0.83529411764705885" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="uoS-I2-7wA">
@@ -33,14 +34,24 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="XYF-bd-2Rp"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJh-hR-fT4" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="EgI-jD-mER"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.58431372549019611" green="0.83529411764705885" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="vah-ff-Knh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="99x-Aa-U9M"/>
-                            <constraint firstItem="vah-ff-Knh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="LI5-sp-PyG"/>
-                            <constraint firstItem="vah-ff-Knh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jJX-Wo-geE"/>
-                            <constraint firstItem="vah-ff-Knh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nr5-1o-rKQ"/>
+                            <constraint firstItem="vah-ff-Knh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1Zo-3h-2Dn"/>
+                            <constraint firstItem="BJh-hR-fT4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="75Y-tu-xXw"/>
+                            <constraint firstItem="BJh-hR-fT4" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Jve-lA-YpQ"/>
+                            <constraint firstItem="vah-ff-Knh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Vpn-Mo-2QX"/>
+                            <constraint firstItem="BJh-hR-fT4" firstAttribute="top" secondItem="vah-ff-Knh" secondAttribute="bottom" id="afX-4n-ZVu"/>
+                            <constraint firstItem="BJh-hR-fT4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="h5g-BW-tzI"/>
+                            <constraint firstItem="vah-ff-Knh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="j9A-3X-6Ci"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="KARITA" largeTitleDisplayMode="always" id="HwH-6Z-7MR">
@@ -54,6 +65,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bannerView" destination="BJh-hR-fT4" id="cSr-6o-fdK"/>
                         <outlet property="tableView" destination="vah-ff-Knh" id="vwh-ba-Dbc"/>
                         <segue destination="z8h-Ka-Xxm" kind="show" identifier="edit" id="xCE-Hc-5QX"/>
                     </connections>
@@ -207,4 +219,9 @@
     <inferredMetricsTieBreakers>
         <segue reference="xCE-Hc-5QX"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

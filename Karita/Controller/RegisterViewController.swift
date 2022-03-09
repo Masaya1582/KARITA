@@ -1,14 +1,10 @@
-//
-//  RegisterViewController.swift
-//  Karita
-//
-//  Created by Cookie-san on 2022/02/26.
-//
+
 
 import UIKit
 import SPIndicator
 import RealmSwift
 import UserNotifications
+import PKHUD
 
 
 class RegisterViewController: UIViewController {
@@ -93,6 +89,7 @@ class RegisterViewController: UIViewController {
             self.realm.add(self.task, update: .modified)
         }
         setNotification(task: task)
+        HUD.flash(.success, delay: 1.0)
         self.navigationController?.popToRootViewController(animated: true)
     }
 }

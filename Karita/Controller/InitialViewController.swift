@@ -1,9 +1,4 @@
-//
-//  InitialViewController.swift
-//  Karita
-//
-//  Created by Cookie-san on 2022/03/04.
-//
+
 
 import UIKit
 import RealmSwift
@@ -102,14 +97,6 @@ extension InitialViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
-    
-    //左スワイプでの削除を出来ないようにするかどうか悩み中
-    //    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-    //        if tableView.isEditing {
-    //            return .delete
-    //        }
-    //        return .none
-    //    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "edit", sender: nil)

@@ -6,7 +6,6 @@ import RealmSwift
 import UserNotifications
 import PKHUD
 
-
 class RegisterViewController: UIViewController {
     
     @IBOutlet weak var karimonoTextField: UITextField!
@@ -16,6 +15,7 @@ class RegisterViewController: UIViewController {
     
     private let realm = try! Realm()
     var task: Task!
+    let today = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,15 +26,13 @@ class RegisterViewController: UIViewController {
         karimonoTextField.delegate = self
         nameTextField.delegate = self
         detailTextView.delegate = self
-        
         remindDatePicker.preferredDatePickerStyle = .compact
         remindDatePicker.datePickerMode = .dateAndTime
-        
+        remindDatePicker.minimumDate = today
         karimonoTextField.text = task.karimonoTitle
         nameTextField.text = task.name
         detailTextView.text = task.detail
         remindDatePicker.date = task.date
-        
         let attributes: [NSAttributedString.Key : Any] = [
             .font: UIFont.boldSystemFont(ofSize: 15.0),
             .foregroundColor : UIColor.lightGray

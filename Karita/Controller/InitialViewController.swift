@@ -6,7 +6,6 @@ import UserNotifications
 import M13Checkbox
 import GoogleMobileAds
 
-
 class InitialViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -14,6 +13,7 @@ class InitialViewController: UIViewController {
     
     let realm = try! Realm()
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
+    var task: Task!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,11 @@ class InitialViewController: UIViewController {
         tableView.dataSource = self
         navigationItem.leftBarButtonItems = [editButtonItem]
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "MarkerFelt-Wide", size: 30)!,.foregroundColor: UIColor.white]
+        UNUserNotificationCenter.current().requestAuthorization(options: .badge) { (granted, error) in
+            if error != nil {
+                // success!
+            }
+        }
     }
     
     private func initTableView() {
@@ -42,7 +47,6 @@ class InitialViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         tableView.reloadData()
     }
     

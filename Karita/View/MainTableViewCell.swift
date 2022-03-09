@@ -16,7 +16,7 @@ class MainTableViewCell: UITableViewCell {
         self.backgroundColor = .white
     }
     
-    func initCheckBox() {
+    private func initCheckBox() {
         checkBox.setCheckState(.checked, animated: false)
         checkBox.setCheckState(.unchecked, animated: false)
         checkBox.checkedValue = 1.0

@@ -41,12 +41,17 @@ class InitialViewController: UIViewController {
     }
     
     private func setupAd() {
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.adUnitID = "ca-app-pub-3728831230250514/4698323569"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         tableView.reloadData()
     }
     
@@ -98,6 +103,9 @@ extension InitialViewController: UITableViewDelegate, UITableViewDataSource {
         if task.date <= today {
             cell.dateLabel.textColor = .red
             cell.titleLabel.alpha = 0.5
+        }else {
+            cell.dateLabel.textColor = .black
+            cell.titleLabel.alpha = 0.7
         }
         return cell
     }

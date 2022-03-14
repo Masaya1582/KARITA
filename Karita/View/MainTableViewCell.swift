@@ -3,13 +3,14 @@
 import UIKit
 import M13Checkbox
 import UserNotifications
+import RealmSwift
 
 class MainTableViewCell: UITableViewCell {
     
     @IBOutlet weak var checkBox: M13Checkbox!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         initCheckBox()
@@ -46,16 +47,13 @@ class MainTableViewCell: UITableViewCell {
             checkBox.setCheckState(.unchecked, animated: false)
             titleLabel.alpha = 0.5
             dateLabel.textColor = .red
-            print(checkBox.checkState)
             
         case .unchecked:
             checkBox.setCheckState(.checked, animated: false)
             titleLabel.alpha = 1.0
             dateLabel.textColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.7)
-            print(checkBox.checkState)
             
         case .mixed:
-            print(checkBox.checkState)
             break
         }
     }

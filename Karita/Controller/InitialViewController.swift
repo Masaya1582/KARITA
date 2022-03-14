@@ -23,8 +23,6 @@ class InitialViewController: UIViewController {
     }
     
     private func setupView() {
-        tableView.delegate = self
-        tableView.dataSource = self
         navigationItem.leftBarButtonItems = [editButtonItem]
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "MarkerFelt-Wide", size: 30)!,.foregroundColor: UIColor.white]
         UNUserNotificationCenter.current().requestAuthorization(options: .badge) { (granted, error) in
@@ -35,6 +33,8 @@ class InitialViewController: UIViewController {
     }
     
     private func initTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         tableView.estimatedRowHeight = 70
         tableView.rowHeight = UITableView.automaticDimension

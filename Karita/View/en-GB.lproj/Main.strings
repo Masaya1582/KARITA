@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "返却予定日(リマインド)"; ObjectID = "DgI-ya-SG2"; */
+"DgI-ya-SG2.text" = "When will you return?";
+
+/* Class = "UINavigationItem"; title = "KARITA"; ObjectID = "HwH-6Z-7MR"; */
+"HwH-6Z-7MR.title" = "KARITA";
+
+/* Class = "UITextField"; placeholder = "名前"; ObjectID = "R9J-oC-iVC"; */
+"R9J-oC-iVC.placeholder" = "name";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "ZjY-p6-v2R"; */
+"ZjY-p6-v2R.title" = "Back";
+
+/* Class = "UILabel"; text = "詳細(借りた理由など)"; ObjectID = "cLU-2u-aLq"; */
+"cLU-2u-aLq.text" = "Details(Optional)";
+
+/* Class = "UITextField"; placeholder = "借り物"; ObjectID = "jgX-0G-oPD"; */
+"jgX-0G-oPD.placeholder" = "item(s)";
+
+/* Class = "UILabel"; text = "誰から？"; ObjectID = "nWx-LO-EwN"; */
+"nWx-LO-EwN.text" = "From Who?";
+
+/* Class = "UILabel"; text = "借りたもの"; ObjectID = "tGj-gx-4B0"; */
+"tGj-gx-4B0.text" = "What did you borrow?";

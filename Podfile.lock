@@ -48,11 +48,11 @@ PODS:
   - nanopb/encode (2.30908.0)
   - PKHUD (5.3.0)
   - PromisesObjC (2.0.0)
-  - Realm (10.24.0):
-    - Realm/Headers (= 10.24.0)
-  - Realm/Headers (10.24.0)
-  - RealmSwift (10.24.0):
-    - Realm (= 10.24.0)
+  - Realm (10.24.1):
+    - Realm/Headers (= 10.24.1)
+  - Realm/Headers (10.24.1)
+  - RealmSwift (10.24.1):
+    - Realm (= 10.24.1)
   - SPIndicator (1.6.4)
 
 DEPENDENCIES:
@@ -85,10 +85,10 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
-  Realm: 5d6f84e3f65d4efa204d46b461e5bbbbbbf84c6c
-  RealmSwift: 9022754b93fad23e1ffc950c93574c5b7899bd51
+  Realm: f9bc5a212a9ab084b4ed90cda1c28d835a38a06b
+  RealmSwift: 0b03bb38001bee4280dcc27709e6b33f438cfad1
   SPIndicator: 93e0a4fb23de51294ac48e874c0f081a5e293e4f
 
 PODFILE CHECKSUM: cd1381c2853b667b8ad3247ebb5992c4d2e15651
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

@@ -32,18 +32,18 @@ class InitialViewController: UIViewController {
         }
     }
     
+    private func setupAd() {
+        bannerView.adUnitID = "ca-app-pub-3728831230250514/4698323569"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+    }
+    
     private func initTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         tableView.estimatedRowHeight = 70
         tableView.rowHeight = UITableView.automaticDimension
-    }
-    
-    private func setupAd() {
-        bannerView.adUnitID = "ca-app-pub-3728831230250514/4698323569"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
     }
     
     override func viewWillAppear(_ animated: Bool) {

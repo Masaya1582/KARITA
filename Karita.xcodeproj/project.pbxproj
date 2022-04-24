@@ -70,7 +70,6 @@
 				408EDE6B27CA54FF0063FDEB /* Main.storyboard */,
 				408EDE7027CA55030063FDEB /* LaunchScreen.storyboard */,
 				408EDE8027CA5E080063FDEB /* MainTableViewCell.xib */,
-				408EDE7F27CA5E080063FDEB /* MainTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -80,6 +79,7 @@
 			children = (
 				4010C79427D24F7900A0F3B2 /* InitialViewController.swift */,
 				408EDE7927CA56C60063FDEB /* RegisterViewController.swift */,
+				408EDE7F27CA5E080063FDEB /* MainTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -409,7 +409,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 1.3;
 				DEVELOPMENT_TEAM = L6Q3MJXV23;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Karita/Info.plist;
@@ -423,7 +423,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.masaya.nakakuki.Karita;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -439,7 +439,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 1.3;
 				DEVELOPMENT_TEAM = L6Q3MJXV23;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Karita/Info.plist;
@@ -453,7 +453,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.masaya.nakakuki.Karita;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

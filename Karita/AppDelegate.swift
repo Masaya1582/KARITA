@@ -10,10 +10,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //広告のインスタンス化？
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         sleep(2)
         
+        //通知の設定
         let center = UNUserNotificationCenter.current()
                 center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
                     // Enable or disable features based on authorization

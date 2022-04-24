@@ -22,6 +22,7 @@ class RegisterViewController: UIViewController {
         setupView()
     }
     
+    //初期画面設定
     private func setupView() {
         karimonoTextField.delegate = self
         nameTextField.delegate = self
@@ -42,28 +43,20 @@ class RegisterViewController: UIViewController {
         detailTextView.backgroundColor = .white
     }
     
+    //通知機能(指定時間になったら通知を飛ばす)の管理
     private func setNotification(task: Task) {
         let content = UNMutableNotificationContent()
-        // タイトルと内容を設定(中身がない場合メッセージ無しで音だけの通知になるので「(xxなし)」を表示する)
         content.title = task.karimonoTitle == "" ? "(題名なし)" : task.karimonoTitle
         content.body = task.name == "" ? "返却時間です" : "\(task.name)に返却"
         content.sound = .default
-        
-        // ローカル通知が発動するtrigger（日付マッチ）を作成
         let calendar = Calendar.current
         let dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: task.date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-        
-        // identifier, content, triggerからローカル通知を作成（identifierが同じだとローカル通知を上書き保存）
         let request = UNNotificationRequest(identifier: String(task.id), content: content, trigger: trigger)
-        
-        // ローカル通知を登録
         let center = UNUserNotificationCenter.current()
         center.add(request) { error in
-            print(error ?? "ローカル通知登録 OK")  // error が nil ならローカル通知の登録に成功したと表示します。errorが存在すればerrorを表示します。
+            print(error ?? "ローカル通知登録 OK")
         }
-        
-        // 未通知のローカル通知一覧をログ出力
         center.getPendingNotificationRequests { (requests: [UNNotificationRequest]) in
             for request in requests {
                 print("/---------------")
@@ -73,7 +66,9 @@ class RegisterViewController: UIViewController {
         }
     }
     
+    //保存機能
     @IBAction func saveAction(_ sender: Any) {
+        //[借り物]項目が未入力なら保存せずエラーメッセージを表示する
         if karimonoTextField.text == "" {
             let indicatorView = SPIndicatorView(title: "エラー", message: "借り物項目の入力漏れ", preset: .error)
             indicatorView.present(duration: 3)

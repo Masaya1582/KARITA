@@ -4,6 +4,7 @@ import UIKit
 import RealmSwift
 import UserNotifications
 import M13Checkbox
+import PKHUD
 import GoogleMobileAds
 
 class InitialViewController: UIViewController {
@@ -18,12 +19,15 @@ class InitialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupTableView()
         setupAd()
-        initTableView()
+        addBannerViewToView(bannerView)
     }
     
+    //初期画面設定
     private func setupView() {
         navigationItem.leftBarButtonItems = [editButtonItem]
+        //NabigatonBarのタイトル見た目設定
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "MarkerFelt-Wide", size: 30)!,.foregroundColor: UIColor.white]
         UNUserNotificationCenter.current().requestAuthorization(options: .badge) { (granted, error) in
             if error != nil {
@@ -32,13 +36,8 @@ class InitialViewController: UIViewController {
         }
     }
     
-    private func setupAd() {
-        bannerView.adUnitID = "ca-app-pub-3728831230250514/4698323569"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
-    }
-    
-    private func initTableView() {
+    //TableViewの初期設定
+    private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
@@ -46,17 +45,47 @@ class InitialViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+    //広告表示の設定
+    private func setupAd() {
+        //本番用広告ID
+        //bannerView.adUnitID = "ca-app-pub-3728831230250514/4698323569"
+        
+        //テスト用広告ID
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.delegate = self
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    //バナービューの配置等の設定
+    private func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         let registerVC = segue.destination as! RegisterViewController
+        //セルがタップされた時と新規作成ボタンが押されたときの画面遷移タイプ分け
         if segue.identifier == "edit" {
             let indexPath = self.tableView.indexPathForSelectedRow
             registerVC.task = taskArray[indexPath!.row]
@@ -99,6 +128,7 @@ extension InitialViewController: UITableViewDelegate, UITableViewDataSource {
         let taskDateString:String = formatter.string(from: task.date)
         cell.dateLabel.text = taskDateString
         
+        //時刻を取得して指定時間より過ぎていれば見た目を変える
         let today = Date()
         if task.date <= today {
             cell.dateLabel.textColor = .red
@@ -121,6 +151,7 @@ extension InitialViewController: UITableViewDelegate, UITableViewDataSource {
             center.removePendingNotificationRequests(withIdentifiers: [String(task.id)])
             
             try! realm.write {
+                HUD.flash(.label("返却完了"), delay: 1.0)
                 self.realm.delete(self.taskArray[indexPath.row])
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
@@ -133,6 +164,34 @@ extension InitialViewController: UITableViewDelegate, UITableViewDataSource {
                 }
             }
         }
+    }
+    
+}
+
+extension InitialViewController: GADBannerViewDelegate {
+    //バナービューの詳細設定
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("bannerViewDidReceiveAd")
+    }
+    
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+        print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+    
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+        print("bannerViewDidRecordImpression")
+    }
+    
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+        print("bannerViewWillPresentScreen")
+    }
+    
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+        print("bannerViewWillDIsmissScreen")
+    }
+    
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+        print("bannerViewDidDismissScreen")
     }
     
 }

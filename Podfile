@@ -11,6 +11,5 @@ target 'Karita' do
     pod 'RealmSwift'
     pod 'M13Checkbox'
     pod 'Google-Mobile-Ads-SDK'
-    pod 'PKHUD', '~> 5.0'
 
 end

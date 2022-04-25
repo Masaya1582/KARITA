@@ -17,7 +17,7 @@ class MainTableViewCell: UITableViewCell {
         self.backgroundColor = .white
     }
     
-    //チェックボックスの初期設定(未だうまくいっていないけど、、、)
+    //チェックボックスの初期設定
     private func initCheckBox() {
         checkBox.setCheckState(.checked, animated: false)
         checkBox.setCheckState(.unchecked, animated: false)

@@ -48,10 +48,11 @@ class InitialViewController: UIViewController {
     //広告表示の設定
     private func setupAd() {
         //本番用広告ID
-        //bannerView.adUnitID = "ca-app-pub-3728831230250514/4698323569"
+        bannerView.adUnitID = "ca-app-pub-3728831230250514/4698323569"
         
         //テスト用広告ID
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        //bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        
         bannerView.delegate = self
         bannerView.rootViewController = self
         bannerView.load(GADRequest())

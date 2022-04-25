@@ -87,6 +87,7 @@ class RegisterViewController: UIViewController {
     }
 }
 
+//textfiledを閉じる設定
 extension RegisterViewController: UITextFieldDelegate, UITextViewDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         view.endEditing(true)

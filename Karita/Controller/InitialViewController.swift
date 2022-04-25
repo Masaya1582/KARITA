@@ -66,7 +66,7 @@ class InitialViewController: UIViewController {
             [NSLayoutConstraint(item: bannerView,
                                 attribute: .bottom,
                                 relatedBy: .equal,
-                                toItem: bottomLayoutGuide,
+                                toItem: bottomLayoutGuide, //修正すべき？
                                 attribute: .top,
                                 multiplier: 1,
                                 constant: 0),
